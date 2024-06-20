@@ -57,7 +57,12 @@ app.delete('/delete', (req, res) => {
     }
     database.submissions.splice(submissionIndex, 1);
     writeDatabase(database);
-    res.send({ success: true });
+    res.status(200).send('Submission deleted successfully.');
+});
+app.get('/count', (req, res) => {
+    const database = readDatabase();
+    const count = database.submissions.length;
+    res.json({ count });
 });
 app.put('/edit', (req, res) => {
     const { index } = req.query;

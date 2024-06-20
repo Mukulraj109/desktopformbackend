@@ -58,6 +58,7 @@ app.get('/ping', (req: Request, res: Response) => {
     res.send({ success: true });
 });
 
+
 app.delete('/delete', (req: Request, res: Response) => {
     const { index } = req.query;
 
@@ -74,7 +75,13 @@ app.delete('/delete', (req: Request, res: Response) => {
 
     database.submissions.splice(submissionIndex, 1);
     writeDatabase(database);
-    res.send({ success: true });
+    res.status(200).send('Submission deleted successfully.');
+});
+
+app.get('/count', (req: Request, res: Response) => {
+    const database = readDatabase();
+    const count = database.submissions.length;
+    res.json({ count });
 });
 
 app.put('/edit', (req: Request, res: Response) => {
