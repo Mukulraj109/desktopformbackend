@@ -51,13 +51,12 @@ Response: true (indicating the server is up and running)
 
 2. **Submit Endpoint**
 
-URL: `/submit`
-Description: Submits a form with the following parameters: name, email, phone, github_link, stopwatch_time.
+- URL: `/submit`
+- Description: Submits a form with the following - - parameters: name, email, phone, github_link, stopwatch_time.
 
-Method: POST
-Request Body:
+- Method: POST
+- Request Body:
 ```json
-Copy code
 {
   "name": "John Doe",
   "email": "john.doe@example.com",
@@ -67,28 +66,28 @@ Copy code
 }
 
 ```
-Response: { "success": true }
+- Response: { "success": true }
 3. **Read Endpoint**
 
-Description: Retrieves a form submission by its index.
-URL: `/read`
-Method: GET
-Query Parameter: index (0-indexed)
-Example: /read?index=0
-Response: JSON object representing the form submission
+- Description: Retrieves a form submission by its index.
+- URL: `/read`
+- Method: GET
+- Query Parameter: index (0-indexed)
+- Example: /read?index=0
+- Response: JSON object representing the form submission
 4. **Delete Endpoint**
 
-Description: Deletes a form submission by its index.
-URL: `/delete`
-Method: DELETE
-Query Parameter: index (0-indexed)
-Example: /delete?index=0 or DELETE /delete?index=<index>
+- Description: Deletes a form submission by its index.
+- URL: `/delete`
+- Method: DELETE
+- Query Parameter: index (0-indexed)
+- Example: /delete?index=0 or DELETE /delete?index=<index>
 
-Response: { "success": true }
+- Response: { "success": true }
 
 ## Error Handling
-If any required parameters are missing or invalid, appropriate error messages and status codes (400 Bad Request) will be returned.
-For invalid indices or non-existing submissions, a 404 Not Found error will be returned.
+- If any required parameters are missing or invalid, appropriate error messages and status codes (400 Bad Request) will be returned.
+- For invalid indices or non-existing submissions, a 404 Not Found error will be returned.
 
 
 ## Testing with Postman
