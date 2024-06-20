@@ -8,6 +8,7 @@ This is a TypeScript-based Express server for managing submissions with endpoint
 - **Submit Endpoint**: Save new submissions.
 - **Read Endpoint**: Retrieve saved submissions.
 - **Delete Endpoint**: Remove submissions by index.
+- **Edit Endpoint**: Update submissions by index.
 
 ## Technologies Used
 
@@ -25,7 +26,7 @@ This is a TypeScript-based Express server for managing submissions with endpoint
 
 1. **Clone the repository**: First, you will need to clone the repository to your local machine. You can do this with the following command:
 
-   ```https://github.com/Mukulraj109/.git```
+   ```https://github.com/Mukulraj109/desktopformbackend.git```
    
 
 
@@ -37,17 +38,16 @@ Build the TypeScript files (if not already built):
 - npm run build
 
 - To start the backend server, use the following command:
-
-- npm start
-The server will run at http://localhost:3000.
+1. npm start
+2. The server will run at http://localhost:3000.
 
 ## API Endpoints
 
 1. **Ping Endpoint**
 
-GET `/ping`
-Method: GET
-Response: true (indicating the server is up and running)
+- GET `/ping`
+- Method: GET
+- Response: true (indicating the server is up and running)
 
 2. **Submit Endpoint**
 

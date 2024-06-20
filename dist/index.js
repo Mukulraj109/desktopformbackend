@@ -75,6 +75,18 @@ app.put('/edit', (req, res) => {
     writeDatabase(database);
     res.send({ success: true });
 });
+app.get('/search', (req, res) => {
+    const { email } = req.query;
+    if (!email || typeof email !== 'string') {
+        return res.status(400).send('Email parameter is required and must be a string.');
+    }
+    const database = readDatabase();
+    const matchingSubmissions = database.submissions.filter((submission) => submission.email === email);
+    if (matchingSubmissions.length === 0) {
+        return res.status(404).send('No submissions found for the provided email.');
+    }
+    res.json(matchingSubmissions);
+});
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
