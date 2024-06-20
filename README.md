@@ -9,6 +9,7 @@ This is a TypeScript-based Express server for managing submissions with endpoint
 - **Read Endpoint**: Retrieve saved submissions.
 - **Delete Endpoint**: Remove submissions by index.
 - **Edit Endpoint**: Update submissions by index.
+- **Search Endpoint**: Search form submissions by email ID.
 
 ## Technologies Used
 
@@ -85,7 +86,7 @@ Build the TypeScript files (if not already built):
 
 - Response: { "success": true }
 
-5. **Editing a Submitted Form** (PUT Request)
+5. **Edit Endpoint** (PUT Request)
 
 -To edit a previously submitted form, you can use the `/edit` endpoint with a `PUT` request.
 
@@ -115,6 +116,14 @@ Build the TypeScript files (if not already built):
 #### Expected Response
 - If the update is successful, you will receive a JSON response { "success": true }.
 - Handle any errors or status codes based on the server's response.
+
+6. **Search Endpoint**
+- URL: http://localhost:3000/search?email=<email>
+- Method: GET
+- Description: Search form submissions by email ID.
+- Query Parameter:
+    1. email: Email ID to search for.
+- Response: Returns an array of submissions   matching the provided email ID.
 
 
 ## Error Handling
@@ -177,7 +186,12 @@ To test the Submission Backend API endpoints using Postman:
      ```
    - Click on "Send". You should receive a response with `{ "success": true }`, indicating that the update was successful.
 
-6. **Additional Notes**
+6. **Search Endpoint**
+- Set the request type to GET.
+- Enter the URL: http://localhost:3000/search?email=john.doe@example.com
+- Click on "Send". You should receive a response with an array of submissions matching the provided email ID.
+
+7. **Additional Notes**
    - Ensure that the server (`npm start`) is running locally before making requests from Postman.
    - Handle any errors or exceptions based on the API documentation provided in this README.
 
