@@ -76,6 +76,28 @@ app.delete('/delete', (req: Request, res: Response) => {
     writeDatabase(database);
     res.send({ success: true });
 });
+
+app.put('/edit', (req: Request, res: Response) => {
+    const { index } = req.query;
+
+    if (index === undefined || isNaN(Number(index))) {
+        return res.status(400).send('Index is required and should be a number.');
+    }
+
+    const { name, email, phone, github_link, stopwatch_time } = req.body;
+    const database = readDatabase();
+    const submissionIndex = parseInt(index as string);
+
+    if (submissionIndex < 0 || submissionIndex >= database.submissions.length) {
+        return res.status(404).send('Submission not found.');
+    }
+
+    // Update the submission at the specified index
+    database.submissions[submissionIndex] = { name, email, phone, github_link, stopwatch_time };
+    writeDatabase(database);
+    res.send({ success: true });
+});
+
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
     });

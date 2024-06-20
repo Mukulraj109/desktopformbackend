@@ -132,10 +132,7 @@ To test the Submission Backend API endpoints using Postman:
    - Ensure that the server (`npm start`) is running locally before making requests from Postman.
    - Handle any errors or exceptions based on the API documentation provided in this README.
 
-This testing guide should help you validate the functionality of each API endpoint using Postman.
-
-## License
-This project is licensed under the MIT License - see the LICENSE file for details.
+   - This testing guide should help you validate the functionality of each API endpoint using Postman.
 
 ## Notes
 - This server uses a JSON file (db.json) as a simple database to store form submissions.
