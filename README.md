@@ -85,6 +85,38 @@ Response: true (indicating the server is up and running)
 
 - Response: { "success": true }
 
+5. **Editing a Submitted Form** (PUT Request)
+
+-To edit a previously submitted form, you can use the `/edit` endpoint with a `PUT` request.
+
+### Endpoint URL
+- `http://localhost:3000/edit`
+
+### Request Parameters
+- `index`: Specify the index (or ID) of the submission you want to edit as a query parameter in the URL. For example, to edit the submission at index `0`, use `?index=0`.
+
+### Request Body
+- Select `raw` and `JSON (application/json)` from the dropdown menu.
+- Provide updated data fields in the JSON format. Example:
+  ```json
+  {
+      "name": "Updated Name",
+      "email": "updated@email.com",
+      "phone": "1234567890",
+      "github_link": "https://github.com/updated",
+      "stopwatch_time": "01:30:00"
+  }
+
+### Sending the Request
+- Set the request type to PUT.
+- Enter the endpoint URL with the appropriate index query parameter.
+- Enter the JSON payload in the request body.
+- Click on "Send" to submit the request to the server.
+#### Expected Response
+- If the update is successful, you will receive a JSON response { "success": true }.
+- Handle any errors or status codes based on the server's response.
+
+
 ## Error Handling
 - If any required parameters are missing or invalid, appropriate error messages and status codes (400 Bad Request) will be returned.
 - For invalid indices or non-existing submissions, a 404 Not Found error will be returned.
@@ -127,12 +159,30 @@ To test the Submission Backend API endpoints using Postman:
    - Set the request type to `DELETE`.
    - Enter the URL: `http://localhost:3000/delete?index=0` (Replace `0` with the index of the submission you want to delete).
    - Click on "Send". You should receive a response with `{ "success": true }`, indicating that the deletion was successful.
+5. **Edit Endpoint**
+   - Set the request type to `PUT`.
+   - Enter the URL: `http://localhost:3000/edit?index=0` (Replace `0` with the index of the submission you want to edit).
+   - Navigate to the "Body" tab.
+   - Select `raw` and choose `JSON (application/json)` from the dropdown.
+   - Update the fields you want to edit in the JSON payload. For example:
 
-5. **Additional Notes**
+     ```json
+     {
+       "name": "Updated Name",
+       "email": "updated.email@example.com",
+       "phone": "9876543210",
+       "github_link": "https://github.com/updated",
+       "stopwatch_time": "02:00:00"
+     }
+     ```
+   - Click on "Send". You should receive a response with `{ "success": true }`, indicating that the update was successful.
+
+6. **Additional Notes**
    - Ensure that the server (`npm start`) is running locally before making requests from Postman.
    - Handle any errors or exceptions based on the API documentation provided in this README.
 
    - This testing guide should help you validate the functionality of each API endpoint using Postman.
+
 
 ## Notes
 - This server uses a JSON file (db.json) as a simple database to store form submissions.
